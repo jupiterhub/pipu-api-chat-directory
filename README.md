@@ -1,6 +1,9 @@
 # pipu-api-chat-directory
 Lookup service for all persistent client-server connections used by `pipu-api-chat`.
 
+## Dependencies
+* redis at `:6379`, quarkus uses dev. Only for production  
+
 ### Dev mode
 ```shell script
 quarkus dev
