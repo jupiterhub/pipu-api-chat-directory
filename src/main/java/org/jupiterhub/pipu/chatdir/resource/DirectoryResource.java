@@ -28,10 +28,10 @@ public class DirectoryResource {
 
     @GET
     @Path("/{key}")
-    public String lookup(String key) {
+    public Directory lookup(String key) {
         Optional<Directory> directory = directoryService.get(key);
         if (directory.isPresent()) {
-            return directory.get().connString();
+            return directory.get();
         }
 
         throw new NotFoundException("Key [" + key + "] does not exist");
@@ -40,7 +40,7 @@ public class DirectoryResource {
     @PUT
     @Path("/{key}")
     public Directory register(String key, Directory directory) {
-        Directory withKey = new Directory(key, directory.connString());
+        Directory withKey = new Directory(key, directory.host());
         directoryService.set(key, withKey);
         return withKey;
     }

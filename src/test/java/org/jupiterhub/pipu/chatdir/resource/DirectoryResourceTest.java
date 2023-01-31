@@ -27,13 +27,13 @@ class DirectoryResourceTest {
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"userId\":\"jdoe\",\"connString\":\"1.2.3.4\"}")
+                .body("{\"userId\":\"jdoe\",\"host\":\"1.2.3.4\"}")
                 .when()
                 .post("/directory")
                 .then()
                 .statusCode(200)
                 .body("userId", is("jdoe"))
-                .body("connString", is("1.2.3.4"));
+                .body("host", is("1.2.3.4"));
 
         // lookup directory
         given()
@@ -43,19 +43,19 @@ class DirectoryResourceTest {
                 .then()
                 .statusCode(200)
                 .body("userId", is("jdoe"))
-                .body("connString", is("1.2.3.4"));
+                .body("host", is("1.2.3.4"));
 
         // update ip of jdoe
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"userId\":\"jdoe\",\"connString\":\"10.20.30.40\"}")
+                .body("{\"userId\":\"jdoe\",\"host\":\"10.20.30.40\"}")
                 .when()
                 .put("/directory/jdoe")
                 .then()
                 .statusCode(200)
                 .body("userId", is("jdoe"))
-                .body("connString", is("10.20.30.40"));
+                .body("host", is("10.20.30.40"));
 
 
         // test not found for unexisting id
@@ -70,13 +70,13 @@ class DirectoryResourceTest {
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"userId\":\"mk2\",\"connString\":\"1.2.3.5\"}")
+                .body("{\"userId\":\"mk2\",\"host\":\"1.2.3.5\"}")
                 .when()
                 .post("/directory")
                 .then()
                 .statusCode(200)
                 .body("userId", is("mk2"))
-                .body("connString", is("1.2.3.5"));
+                .body("host", is("1.2.3.5"));
 
         // ensure that we have the data
         given()
@@ -86,7 +86,7 @@ class DirectoryResourceTest {
                 .then()
                 .statusCode(200)
                 .body("userId", is("mk2"))
-                .body("connString", is("1.2.3.5"));
+                .body("host", is("1.2.3.5"));
 
         // Delete first user
         given()
