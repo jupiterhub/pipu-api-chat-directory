@@ -40,9 +40,9 @@ public class DirectoryResource {
     @PUT
     @Path("/{key}")
     public Directory register(String key, Directory directory) {
-        Directory withKey = new Directory(key, directory.host());
-        directoryService.set(key, withKey);
-        return withKey;
+        Directory directoryWithKey = new Directory(key, directory.host());
+        directoryService.set(directoryWithKey.userId(), directoryWithKey);
+        return directoryWithKey;
     }
 
     @DELETE

@@ -6,6 +6,7 @@ import io.quarkus.redis.datasource.keys.ReactiveKeyCommands;
 import io.quarkus.redis.datasource.value.ValueCommands;
 import io.smallrye.mutiny.Uni;
 import org.jupiterhub.pipu.chatdir.record.Directory;
+import org.jupiterhub.pipu.chatdir.util.StringUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
@@ -25,7 +26,7 @@ public class DirectoryService {
 
 
     public Optional<Directory> get(String key) {
-        Directory value = countCommands.get(key);
+        Directory value = countCommands.get(StringUtil.lowerCase(key));
         if (value == null) {
             return Optional.empty();
         }
@@ -34,11 +35,11 @@ public class DirectoryService {
     }
 
     public void set(String key, Directory directory) {
-        countCommands.set(key, directory);
+        countCommands.set(StringUtil.lowerCase(key), directory);
     }
 
     public Uni<Void> del(String key) {
-        return keyCommands.del(key).replaceWithVoid();
+        return keyCommands.del(StringUtil.lowerCase(key)).replaceWithVoid();
     }
 
 
