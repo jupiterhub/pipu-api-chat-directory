@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "74f77079-fa8f-4c67-a768-9fb129a6b00b",
+		"name": "PIPU - Directory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27684693"
+	},
+	"item": [
+		{
+			"name": "/directory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/directory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"directory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/directory/{key}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/directory/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"directory",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/directory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"test\",\n    \"host\": \"localhost\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/directory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"directory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/directory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"test\",\n    \"host\": \"remotehost\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/directory/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"directory",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
