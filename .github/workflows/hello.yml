@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building native image 🚀
 on: [push]
 jobs:
   Build-Image:
-    runs-on: [self-hosted, fedora, nothing]
+    runs-on: [self-hosted, fedora]
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
