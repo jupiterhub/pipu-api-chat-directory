@@ -1,5 +1,5 @@
 name: Build docker image
-run-name: ${{ github.actor }} is building native image 🚀
+run-name: ${{ github.actor }} is building/pushing image 🚀
 on: [push]
 jobs:
   build-image:
