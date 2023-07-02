@@ -20,4 +20,4 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
         run: echo "$DOCKER_PASS" | docker login --username walkingjupiter --password-stdin
       - run: echo "Logged into docker. Ready to push."
-      - run: docker push walkingjupiter/pipu-api-chat-directory:latesT
+      - run: docker push walkingjupiter/pipu-api-chat-directory:latest
