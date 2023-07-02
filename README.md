@@ -15,19 +15,20 @@ quarkus build
 ```
 
 ### Build for native mode
-```shell script
-quarkus build --native --no-tests -Dquarkus.native.container-build=true
-```
 Note:
 Native uses `UPX` for compression. A higher value means slower build time but lower disk size.
 ```properties
 # compression level can be set as from 1-10
 quarkus.native.compression.level=10
 ```
+```shell script
+quarkus build --native --no-tests -Dquarkus.native.container-build=true
+```
 
 run via: `./build/pipu-api-chat-directory-1.0.0-SNAPSHOT-runner`
 
 ### Build container
+Build the native file first (command above) before running this command 
 ```shell script
-docker build -f src/main/docker/Dockerfile.native-micro -t jupiterhub/pipu-api-chat-directory:latest .
+docker build -f src/main/docker/Dockerfile.native-micro -t walkingjupiter/pipu-api-chat-directory:latest .
 ```
