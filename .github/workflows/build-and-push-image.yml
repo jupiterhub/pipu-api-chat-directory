@@ -1,0 +1,23 @@
+name: Build docker image
+run-name: ${{ github.actor }} is building native image 🚀
+on: [push]
+jobs:
+  build-image:
+    runs-on: self-hosted
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: quarkus build --native --no-tests -Dquarkus.native.container-build=true
+      - run: docker build -f src/main/docker/Dockerfile.native-micro -t walkingjupiter/pipu-api-chat-directory:latest .
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+  push-image:
+    needs: build-image
+    runs-on: self-hosted
+    steps:
+      - name: Login to docker
+        env:
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+        run: echo $DOCKER_PASS | docker login --username walkingjupiter --password-stdin
+      - run: echo Logged into docker. Ready to push."
+      - run: docker push walkingjupiter/pipu-api-chat-directory:latest .
