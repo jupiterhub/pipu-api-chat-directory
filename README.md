@@ -29,5 +29,5 @@ run via: `./build/pipu-api-chat-directory-1.0.0-SNAPSHOT-runner`
 
 ### Build container
 ```shell script
-docker build -f src/main/docker/Dockerfile.native-micro -t jupiterhub/pipu-api-chat-directory:1.0.0 .
+docker build -f src/main/docker/Dockerfile.native-micro -t jupiterhub/pipu-api-chat-directory:latest .
 ```
